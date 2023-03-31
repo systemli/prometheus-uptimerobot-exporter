@@ -22,8 +22,16 @@ $GOPATH/bin/prometheus-uptimerobot-exporter
 ```text
 # HELP uptimerobot_monitor_up Status of the UptimeRobot monitor
 # TYPE uptimerobot_monitor_up gauge
-uptimerobot_monitor_up{friendly_name="Google",id="1",status="2",type="1",url="https://www.google.com"} 2
+uptimerobot_monitor_up{friendly_name="Google",id="1",type="1",url="https://www.google.com"} 2
 ```
+
+Possible values for `status`:
+
+* 0 = paused
+* 1 = not checked yet
+* 2 = up
+* 8 = seems down
+* 9 = down
 
 ## Docker
 

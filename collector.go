@@ -18,7 +18,7 @@ func NewCollector(apiKey string) *Collector {
 		Monitor: prometheus.NewDesc(
 			"uptimerobot_monitor_up",
 			"Status of the UptimeRobot monitor",
-			[]string{"id", "friendly_name", "url", "type", "status"},
+			[]string{"id", "friendly_name", "url", "type"},
 			nil,
 		),
 	}
@@ -44,7 +44,6 @@ func (c *Collector) Collect(ch chan<- prometheus.Metric) {
 			monitor.FriendlyName,
 			monitor.URL,
 			strconv.Itoa(monitor.Type),
-			strconv.Itoa(monitor.Status),
 		)
 	}
 }
