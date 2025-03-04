@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
+  pull_request:
 
 jobs:
   golangci:
     name: GolangCI
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4

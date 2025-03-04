@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -59,7 +60,7 @@ func (c *UptimerobotClient) GetMonitors() ([]Monitor, error) {
 
 	if res.StatusCode != http.StatusOK {
 		b, _ := io.ReadAll(res.Body)
-		return nil, fmt.Errorf(string(b))
+		return nil, errors.New(string(b))
 	}
 
 	var decoded GetMetricsResponse
