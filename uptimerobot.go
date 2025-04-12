@@ -56,7 +56,9 @@ func (c *UptimerobotClient) GetMonitors() ([]Monitor, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
+	defer func() {
+		_ = res.Body.Close()
+	}()
 
 	if res.StatusCode != http.StatusOK {
 		b, _ := io.ReadAll(res.Body)
